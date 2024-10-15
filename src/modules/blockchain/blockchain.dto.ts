@@ -5,6 +5,24 @@ import {
 } from 'src/modules/blockchain/blockchain.validator';
 import { z } from 'zod';
 
+import { ApiProperty } from '@nestjs/swagger';
+
+export class SetAlertDto {
+  @ApiProperty({ example: 'ETHEREUM', enum: ['ETHEREUM', 'POLYGON'] })
+  chain: string = '';
+
+  @ApiProperty({ example: '2000' })
+  dollar: string = '';
+
+  @ApiProperty({ example: 'example@gmail.com' })
+  email: string = '';
+}
+
+export class SwapDto {
+  @ApiProperty({ example: 2000 })
+  eth: number = 0;
+}
+
 export type TSetAlertSchema = z.TypeOf<typeof SetAlertSchema>;
 export type TSwapSchema = z.TypeOf<typeof SwapSchema>;
 
